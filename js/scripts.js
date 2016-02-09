@@ -1,9 +1,9 @@
-function Movie(movieTitle, newRelease) {
-  this.movieTitle = movieTitle;
+function Movie(newRelease) {
   this.newRelease = newRelease;
 }
 
-function Ticket(age, showTime) {
+function Ticket(age, showTime, movieTitle) {
+  this.movieTitle = movieTitle;
   this.age = age;
   this.showTime = showTime;
 }
@@ -12,20 +12,22 @@ Ticket.prototype.ticketPrice = function() {
   var initialPrice = 5;
   var agePrice = 0;
   var timePrice = 0;
+  var newPrice = 0;
 
 
-  if (this.age < 13 || this.age > 64) {
-    agePrice = agePrice + 0;
-  } else if (this.age > 12 && this.age) {
+  if (this.age > 12 && this.age < 65) {
     agePrice = agePrice + 3;
   }
 
-    if (this.showTime < 6) {
-      timePrice = timePrice + 0;
-    } else if (this.showTime > 4) {
+    if (this.showTime > 4) {
       timePrice = timePrice + 3;
     }
-  var ticketPrice = initialPrice + agePrice + timePrice;
+
+    if (this.movieTitle > 0) {
+      newPrice = newPrice + 3;
+    }
+
+  var ticketPrice = initialPrice + agePrice + timePrice + newPrice;
   return ticketPrice;
 };
 
@@ -36,7 +38,9 @@ $(document).ready(function() {
 
     var inputtedShowTime = $("select#showtime_select").val();
     var inputtedAge = parseInt($("input#age_select").val());
-    var newTicket = new Ticket(inputtedAge, inputtedShowTime);
+    var inputtedNew = $("select#movie_select").val();
+    var newTicket = new Ticket(inputtedAge, inputtedShowTime, inputtedNew);
+
 
     $(".show-price").show();
 
