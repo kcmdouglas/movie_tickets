@@ -1,3 +1,8 @@
 .show-price {
 	display: none;
 }
+
+body {
+	background-color: #c0dddb;
+	font-family: 'Iceberg';
+}

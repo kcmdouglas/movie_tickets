@@ -31,6 +31,11 @@ Ticket.prototype.ticketPrice = function() {
   return ticketPrice;
 };
 
+var clearThings = function() {
+  $("select#showtime_select").val("");
+  $("input#age_select").val("");
+  $("select#movie_select").val("");
+}
 
 $(document).ready(function() {
   $("form#buyTicket").submit(function(event) {
@@ -39,11 +44,15 @@ $(document).ready(function() {
     var inputtedShowTime = $("select#showtime_select").val();
     var inputtedAge = parseInt($("input#age_select").val());
     var inputtedNew = $("select#movie_select").val();
+    var ticketMultiplier = parseInt($("input#ticket-number").val());
     var newTicket = new Ticket(inputtedAge, inputtedShowTime, inputtedNew);
 
 
     $(".show-price").show();
 
-    $("span#ticket-price").append(newTicket.ticketPrice());
+    $("span#ticket-price").text("");
+    $("span#ticket-price").append("$" + (newTicket.ticketPrice() * ticketMultiplier));
+
+    clearThings();
   });
 });
