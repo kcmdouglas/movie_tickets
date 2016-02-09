@@ -8,32 +8,57 @@
     <title>Movie Tickets</title>
   </head>
   <body class="container">
+
+    <!-- not fully functional - add movie code
     <h1>Add A Movie:</h1>
     <form id="move_form">
-      <label for="movieTitle">Title:</label>
+      <label for="movieTitle">Title:</label><br>
       <input id="movieTitle" name="movieTitle" type="text">
       <br>
       <label for="newRelease">New Release?</label><br>
       <input id="newRelease1" type="radio" name="newRelease" value="Yes">Yes<br>
-      <input id="newRelease0" type="radio" name="newRelease" value="No">No<br>
+      <input id="newRelease0" type="radio" name="newRelease" value="No">No<br><br>
+      <button type="submit">Add Movie</button>
     </form>
 <hr>
+-->
+
+<form id="buyTicket">
   <h1>Buy a Ticket:</h1>
 
     <h2>Select a movie:</h2>
-    <div class="">
-
-    </div>
+    <select id="move_select" name="movieTitle">
+      <option value="0">Tasteless Comedy</option>
+      <option value="0">Trite Romance</option>
+      <option value="0">Brain Dead Action Flick</option>
+      <option value="0">Depressing Documentary</option>
+      <option value="0">Social Engineering</option>
+    </select>
 
     <h2>Select a show time:</h2>
-    <div class="">
-
-    </div>
+      <select id="showtime_select" name="showTime">
+        <option value="1">12:00pm</option>
+        <option value="2">2:00pm</option>
+        <option value="3">4:00pm</option>
+        <option value="4">6:00pm</option>
+        <option value="5">8:00pm</option>
+        <option value="6">10:00pm</option>
+        <option value="7">12:00am</option>
+      </select>
 
     <h2>What is your age?</h2>
-    <form id="age_form">
-      <input type="number" name="age" min="1" max="120">
+      <input type="number" name="age" min="1" max="120" id="age_select">
+      <br><br>
+      <button type="submit">Enter</button>
     </form>
+
+    <br>
+    <br>
+
+    <div class="show-price">
+      <h2>Here's your total:</h2>
+        <h3><span id="ticket-price"></span></h3>
+    </div>
 
   </body>
 </html>
